@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="row pt-5 pb-2">
+        <div class="col-md-12 text-center">
+            <input placeholder="search for an artist" (input)="searchArtist($event)" type="text" class="form-control">
+        </div>
+    </div>
+    <div class="row">
+        <div *ngFor="let artist of artistsBySearch" class="col-md-4 p-2">
+            <app-card [item]="artist"></app-card>
+        </div>
+    </div>
+
+    <div *ngIf="loading" class="row text-center pt-2">
+        <div class="col-md-12">
+            <p><i class="fas fa-sync-alt fa-spin fa-10x"></i></p>
+        </div>
+    </div>
+
+    <div *ngIf="artistsBySearch?.length === 0" class="row">
+        <div class="col-md-12">
+            <div class="alert alert-info" role="alert">
+                <p>we could not find any artist with the name of {{artist}}</p>
+            </div>
+        </div>
+    </div>
+</div>

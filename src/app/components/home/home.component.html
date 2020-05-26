@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="row pt-2">
+        <div class="col-md-12">
+            <h1 class="text-center">These are the new release</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div *ngFor="let release of newReleases" class="col-md-4 p-2 pb-5">
+            <app-card [item]="release"></app-card>
+        </div>
+    </div>
+
+    <div *ngIf="loading" class="row">
+        <div class="col-md-12 text-center pt-5">
+            <p><i class="fas fa-sync-alt fa-spin fa-10x"></i></p>
+        </div>
+    </div>
+
+    <div *ngIf="message" class="row">
+        <div class="col-md-12">
+            <div class="alert alert-danger" role="alert">
+                {{message}}
+            </div>
+        </div>
+    </div>
+</div>

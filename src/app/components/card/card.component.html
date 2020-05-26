@@ -1,0 +1,18 @@
+<div *ngIf="item" class="card" style="width: 18rem;">
+    <img [src]="item.images | noImage" class="card-img-top" alt="...">
+    <div class="card-body">
+        <h5 class="card-title">{{item.name}}</h5>
+        <p *ngIf="item.artists" class="card-text"><span *ngFor="let artist of item.artists"
+                class="badge badge-dark mr-1">{{artist.name}}</span></p>
+
+        <button *ngIf="item.artists" (click)="artistDetails(item.artists[0].id)" class="btn btn-primary"><i
+                class="fas fa-music"></i> Visit
+            the
+            artist</button>
+
+        <button *ngIf="!item.artists" (click)="artistDetails(item.id)" class="btn btn-primary"><i
+                class="fas fa-music"></i> Visit
+            the
+            artist</button>
+    </div>
+</div>

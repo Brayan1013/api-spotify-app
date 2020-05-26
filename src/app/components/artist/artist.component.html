@@ -1,0 +1,57 @@
+<div class="container">
+    <div *ngIf="artist" class="row">
+        <div class="col-md-12 pt-5 pb-2">
+            <h1 class="text-center">{{artist.name}}</h1>
+            <hr>
+        </div>
+        <div class="col-md-6 text-center">
+            <img class="rounded-circle img-fluid" [src]="artist.images[1].url" alt="" srcset="">
+        </div>
+        <div class="col-md-6  content-artist text-center">
+            <h2 class="pt-3 text-center">Genres</h2>
+            <span *ngFor="let genre of artist.genres" class="badge badge-danger mr-2">{{genre}}</span>
+            <div class="row pt-3">
+                <div class="col-md-6 text-center">
+                    <h2 class="pt-3">Followers</h2>
+                    <h3>{{artist.followers.total | number}}</h3>
+                </div>
+                <div class="col-md-6">
+                    <p><i class="fas fa-user-friends fa-8x"></i></p>
+                    <a class="btn btn-danger" [routerLink]="['/search']"><i class="fas fa-backward"></i> Go back</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="topTracks" class="row pt-5 text-center">
+        <div class="col-md-12 pb-2">
+            <h1 class="text-center">Top tracks</h1>
+            <hr>
+        </div>
+        <div class="col-md-12">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Example</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Album</th>
+                            <th scope="col">Album image</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let track of topTracks">
+                            <th scope="row"><iframe [src]="trackExample + track.id | exampleTrack" width="300"
+                                    height="80" frameborder="0" allowtransparency="true"
+                                    allow="encrypted-media"></iframe>
+                            </th>
+                            <td>{{track.name}}</td>
+                            <td>{{track.album.name}}</td>
+                            <td><img src="{{track.album.images[2].url}}" alt="" srcset=""></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
