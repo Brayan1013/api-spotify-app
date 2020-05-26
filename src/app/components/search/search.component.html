@@ -4,10 +4,13 @@
             <input placeholder="search for an artist" (input)="searchArtist($event)" type="text" class="form-control">
         </div>
     </div>
-    <div class="row">
-        <div *ngFor="let artist of artistsBySearch" class="col-md-4 p-2">
-            <app-card [item]="artist"></app-card>
+    <div class="responsive-card">
+        <div class="row text-center">
+            <div *ngFor="let artist of artistsBySearch" class="col-md-6 col-lg-4 pb-5">
+                <app-card [item]="artist"></app-card>
+            </div>
         </div>
+
     </div>
 
     <div *ngIf="loading" class="row text-center pt-2">

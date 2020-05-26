@@ -4,10 +4,13 @@
             <h1 class="text-center">These are the new release</h1>
         </div>
     </div>
-    <div class="row">
-        <div *ngFor="let release of newReleases" class="col-md-4 p-2 pb-5">
-            <app-card [item]="release"></app-card>
+    <div class="responsive-card">
+        <div class="row justify-content-center">
+            <div *ngFor="let release of newReleases" class="col-md-6 col-lg-4 pb-5">
+                <app-card [item]="release"></app-card>
+            </div>
         </div>
+
     </div>
 
     <div *ngIf="loading" class="row">
